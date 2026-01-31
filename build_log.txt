@@ -1,0 +1,63 @@
+
+> greenledger@2.0.0 build
+> webpack
+
+asset [1m[32mindex.js[39m[22m 14.2 MiB [1m[33m[compared for emit][39m[22m (name: main)
+asset [1m[32mimages/background.jpg[39m[22m 4.93 MiB [1m[33m[compared for emit][39m[22m [from: app/images/background.jpg] [1m[32m[copied][39m[22m
+asset [1m[32mindex.html[39m[22m 7.49 KiB [1m[33m[compared for emit][39m[22m [from: app/index.html] [1m[32m[copied][39m[22m
+orphan modules 6.26 KiB [1m[33m[orphan][39m[22m 9 modules
+runtime modules 1.28 KiB 7 modules
+modules by path [1m./node_modules/[39m[22m 12.2 MiB
+  javascript modules 11.8 MiB 1673 modules
+  json modules 375 KiB 24 modules
+optional modules 210 bytes [1m[33m[optional][39m[22m
+  [1mbuffer (ignored)[39m[22m 15 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1mbuffer (ignored)[39m[22m 15 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1mbuffer (ignored)[39m[22m 15 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1mbuffer (ignored)[39m[22m 15 bytes [1m[33m[optional][39m[22m [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  + 10 modules
+modules by path [1m./app/javascripts/*.js[39m[22m 14.8 KiB
+  [1m./app/javascripts/index.js[39m[22m 2.97 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  [1m./app/javascripts/app.js[39m[22m 11.8 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
++ 10 modules
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/asn1.js/lib/asn1/api.js[39m[22m [1m[32m21:12-42[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'vm' in 'C:\Users\workw\Downloads\AgroChain-master\AgroChain-master\node_modules\asn1.js\lib\asn1'
+
+[1m[31mBREAKING CHANGE[39m[22m[1m: webpack < 5 used to include polyfills for node.js core modules by default.
+This is no longer the case. Verify if you need this module and configure a polyfill for it.
+
+If you want to include a polyfill, you need to:
+	- add a fallback 'resolve.fallback: { "vm": require.resolve("vm-browserify") }'
+	- install 'vm-browserify'
+If you don't want to include a polyfill, you can use an empty module like this:
+	resolve.fallback: { "vm": false }[39m[22m
+ @ ./node_modules/asn1.js/lib/asn1.js 5:14-42
+ @ ./node_modules/parse-asn1/asn1.js 6:11-29
+ @ ./node_modules/parse-asn1/index.js 3:11-28
+ @ ./node_modules/browserify-sign/browser/sign.js 9:16-37
+ @ ./node_modules/browserify-sign/browser/index.js 7:11-28
+ @ ./node_modules/crypto-browserify/index.js 53:11-37
+ @ ./node_modules/@ensdomains/address-encoder/lib/index.module.js 1:0-36 1:108315-108316
+ @ ./node_modules/@ensdomains/ensjs/dist/index.js 37:22-60
+ @ ./node_modules/@truffle/contract/lib/utils/ens.js 2:42-70
+ @ ./node_modules/@truffle/contract/lib/utils/index.js 7:12-28
+ @ ./node_modules/@truffle/contract/lib/execute.js 4:14-32
+ @ ./node_modules/@truffle/contract/lib/contract/index.js 4:16-37
+ @ ./node_modules/@truffle/contract/index.js 2:17-42
+ @ ./app/javascripts/index.js 2:0-56 6:20-28
+
+[1m[33mWARNING[39m[22m in [1m./node_modules/ethers/dist/ethers.min.js[39m[22m [1m[32m1:484-485[39m[22m
+[1mCritical dependency: require function is used in a way in which dependencies cannot be statically extracted[39m[22m
+ @ ./node_modules/@truffle/contract/lib/manual-send.js 2:15-32
+ @ ./node_modules/@truffle/contract/lib/execute.js 10:34-58
+ @ ./node_modules/@truffle/contract/lib/contract/index.js 4:16-37
+ @ ./node_modules/@truffle/contract/index.js 2:17-42
+ @ ./app/javascripts/index.js 2:0-56 6:20-28
+
+2 warnings have detailed information that is not shown.
+Use 'stats.errorDetails: true' resp. '--stats-error-details' to show it.
+
+[1m[31mERROR[39m[22m in [1munable to locate 'C:/Users/workw/Downloads/AgroChain-master/AgroChain-master/app/app.css' glob[39m[22m
+
+webpack 5.104.1 compiled with [1m[31m1 error[39m[22m and [1m[33m2 warnings[39m[22m in 5453 ms

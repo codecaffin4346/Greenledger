@@ -1,0 +1,193 @@
+/* GreenLedger Modern Design - Glassmorphism System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+html {
+    width: 100%;
+    /* Light Theme Gradient */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    /* Black Text */
+    height: 100vh;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Containers */
+.wrapper {
+    text-align: center;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.65);
+    /* White Glass */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 20px auto;
+    color: #000;
+    /* Force Black Text */
+}
+
+h1 {
+    font-weight: 600;
+    margin-top: 40px;
+    color: #1a1a1a;
+    text-shadow: none;
+}
+
+h4 {
+    font-weight: 300;
+    opacity: 0.9;
+    color: #444;
+}
+
+/* Modern Buttons */
+.btn-group {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    padding: 5px;
+    display: inline-flex;
+    gap: 10px;
+    margin: 30px auto;
+    height: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn-selector {
+    background: transparent;
+    color: #555;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-selector:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.btn-selector.active {
+    background: #00b09b;
+    /* Neon Green Gradient Start */
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(56, 239, 125, 0.4);
+    border-color: transparent;
+}
+
+/* Forms */
+.form {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    width: 400px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    color: #333;
+    margin: 40px auto;
+}
+
+.form h2 {
+    color: #1a1a1a;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Inputs */
+.input-std {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 8px;
+    padding: 12px 15px;
+    width: 90%;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.input-std:focus {
+    background: #fff;
+    border-color: #11998e;
+    box-shadow: 0 0 0 2px rgba(17, 153, 142, 0.1);
+    outline: none;
+}
+
+.input-std::placeholder {
+    color: #999;
+}
+
+/* Action Buttons */
+.btn-submit,
+.btn-submit1 {
+    width: 100%;
+    background: linear-gradient(45deg, #11998e, #38ef7d);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-submit:hover {
+    transform: scale(1.02);
+}
+
+/* Table */
+table {
+    width: 100%;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+.black {
+    color: #fff !important;
+    /* Override legacy black class */
+}
+
+/* Timeline Overrides for Dark Theme */
+.timeline-panel {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #333;
+}
+
+
+/* Confetti Particles */
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    z-index: 9999;
+    border-radius: 50%;
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}

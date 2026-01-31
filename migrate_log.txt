@@ -1,0 +1,24 @@
+This version of ┬╡WS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_win32_x64_137.node'
+Require stack:
+- C:\Users\workw\AppData\Local\npm-cache\_npx\7be3639a7343b447\node_modules\ganache\node_modules\@trufflesuite\uws-js-unofficial\src\uws.js
+- C:\Users\workw\AppData\Local\npm-cache\_npx\7be3639a7343b447\node_modules\ganache\dist\node\core.js
+- C:\Users\workw\AppData\Local\npm-cache\_npx\7be3639a7343b447\node_modules\truffle\build\migrate.bundled.js
+- C:\Users\workw\AppData\Local\npm-cache\_npx\7be3639a7343b447\node_modules\original-require\index.js
+- C:\Users\workw\AppData\Local\npm-cache\_npx\7be3639a7343b447\node_modules\truffle\build\cli.bundled.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+
+Compiling your contracts...
+===========================
+> Compiling .\contracts\Migrations.sol
+> Compiling .\contracts\StructStorage.sol
+> Artifacts written to C:\Users\workw\Downloads\AgroChain-master\AgroChain-master\build\contracts
+> Compiled successfully using:
+   - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
+> Something went wrong while attempting to connect to the network at http://127.0.0.1:8545. Check your network configuration.
+CONNECTION ERROR: Couldn't connect to node http://127.0.0.1:8545.
+Truffle v5.11.5 (core: 5.11.5)
+Node v24.11.1

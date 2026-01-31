@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>GreenLedger Application</title>
+  <link href="./modern.css" rel='stylesheet' type='text/css'>
+  <!-- <link href="./app.css" rel='stylesheet' type='text/css'> -->
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <h1>GreenLedger Supply Chain Dapp</h1>
+  <div class="glass-panel"
+    style="width: 300px; margin: 10px auto; padding: 10px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="text-align: left;">
+      <small>Address:</small><br>
+      <span id="SenderBalance" style="font-size: 10px; color: #76ff03;"></span>
+    </div>
+    <div style="text-align: right;">
+      <small>GreenWallet:</small><br>
+      <span style="font-size: 20px; color: #ffd700; font-weight: bold;">
+        <i class="glyphicon glyphicon-piggy-bank"></i> <span id="token-balance">0</span> GC
+      </span>
+    </div>
+  </div>
+  <div align="center" style="margin-bottom: 20px;">
+    <button type="button" class="btn-submit" id="register-farmer" onclick="App.registerFarmer()">Register as
+      Farmer</button>
+    <button type="button" class="btn-submit" id="register-inspector" onclick="App.registerInspector()">Register as
+      Inspector</button>
+  </div>
+
+  <div class="btn-group" id="form-selector" align="center">
+
+    <button type="button" class="btn1 btn-selector active" id="sign-up-btn">Farmer</button>
+    <button type="button" class="btn1 btn-selector" id="log-in-btn">Quality Testing</button>
+    <button type="button" class="btn1 btn-selector" id="payments-btn">Customer</button>
+    <button type="button" class="btn1 btn-selector" id="finance-btn">Micro-Finance</button>
+
+  </div>
+  <div class="form" id="sign-up-form">
+    <h2 class="form-title">Enter Details</h2>
+    <input type="text" class="input-std" id="fid" placeholder="Farmer Id">
+    <input type="text" class="input-std" id="fname" placeholder="Farmers Name">
+    <input type="text" class="input-std" id="loc" placeholder="Location">
+    <input type="text" class="input-std" id="crop" placeholder="Crop Name">
+    <input type="text" class="input-std" id="contact" placeholder="Phone">
+    <input type="text" class="input-std" id="quantity" placeholder="Quantity">
+    <input type="text" class="input-std" id="exprice" placeholder="Expected Price">
+    <button type="button" class="btn-submit" id="setvalue" onclick="set()">Submit Details!</button>
+    <span id="status"></span>
+  </div>
+
+
+  <div class="form" id="log-in-form">
+    <h2 class="form-title">Quality Testing</h2>
+
+
+    <br>
+    <table>
+      <!-- <tr><td><b><label class = "black">Farmer Id</label></td><td>:</td></b><td><span class="black" span id="getval1"></span></td></tr> -->
+      <input type="text" class="input-std" id="fid1" placeholder="Farmer Id">
+      <tr>
+        <td><b><label class="black">Farmer Name</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="getval2"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Location</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="getval3"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Crop</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="getval4"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Phone</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="getval5"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Quantity</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="getval6"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Expected price</label>
+        <td>:</td>
+        </td></b>
+        <td><span class="black" span id="getval7"></span></td>
+      </tr>
+
+    </table>
+    <button type="button" class="btn-submit" id="getvalue" onclick="get();">Get Value</button>
+
+    <br><br>
+
+    <table align="center">
+      <tr>
+        <td><button type="button" id="printBlock" class="btn btn-selector" onclick="printBlock()">Print Block</button>
+        </td>
+        <td><button type="button" id="printTransaction" class="btn btn-selector" onclick="printTransaction()">Print
+            Transaction</button></td>
+      </tr>
+    </table>
+
+    <br>
+    <h4> Block Number : <span class="blockclass" span id="blocknum"> </span></h4>
+    <br>
+    <button type="button" class="btn-submit1" id="Approve-btn" align="center" font="20px">Approve Details</button>
+
+
+
+    <span id="status"></span>
+
+  </div>
+
+
+  <div class="form" id="approve-form">
+    <h2 class="form-title">Product Details</h2>
+    <input type="text" class="input-std" id="lotno" placeholder="Lot Number">
+    <input type="text" class="input-std" id="grade" placeholder="Grade">
+    <input type="text" class="input-std" id="mrp" placeholder="MRP">
+    <input type="text" class="input-std" id="testdate" placeholder="Test Date">
+    <input type="text" class="input-std" id="expdate" placeholder="Expiry Date">
+
+    <div style="margin-bottom: 15px;">
+      <button type="button" class="btn-selector" id="ai-scan-btn" onclick="App.analyzeQuality()"
+        style="width: 100%; border: 2px solid orange; color: orange; font-weight: bold; font-size: 16px; background: rgba(255, 165, 0, 0.1);">
+        <i class="glyphicon glyphicon-camera"></i> AI QUALITY SCAN (CLICK ME)
+      </button>
+      <div id="ai-result" style="display:none; color: #76ff03; font-size: 12px; margin-top: 5px;"></div>
+    </div>
+
+    <button type="button" class="btn-submit" id="setvalue" onclick="setQ()">Submit</button>
+
+    <span id="status"></span>
+
+  </div>
+
+
+  <div class="form" id="payments-form">
+    <h2 class="form-title">Customer</h2>
+    <table>
+      <input type="text" class="input-std" id="getfid" placeholder="Farmer Id">
+      <tr>
+        <td><b><label class="black">Farmer Id</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="cgetval1"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Farmer Name</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="cgetval2"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Location</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="cgetval3"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Crop</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="cgetval4"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Phone</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="cgetval5"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Quantity</label></td>
+        <td>:</td></b>
+        <td><span class="black" span id="cgetval6"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Expected price</label>
+        <td>:</td>
+        </td></b>
+        <td><span class="black" span id="cgetval7"></span></td>
+      </tr>
+      <input type="text" class="input-std" id="lotnum" placeholder="Lot number">
+      <tr>
+        <td><b><label class="black">Lot Number</label>
+        <td>:</td>
+        </td></b>
+        <td><span class="black" span id="cgetval8"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Grade</label>
+        <td>:</td>
+        </td></b>
+        <td><span class="black" span id="cgetval9"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">MRP</label>
+        <td>:</td>
+        </td></b>
+        <td><span class="black" span id="cgetval10"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Test Date</label>
+        <td>:</td>
+        </td></b>
+        <td><span class="black" span id="cgetval11"></span></td>
+      </tr>
+      <tr>
+        <td><b><label class="black">Expiry Date</label>
+        <td>:</td>
+        </td></b>
+        <td><span class="black" span id="cgetval12"></span></td>
+      </tr>
+    </table>
+    <button type="button" class="btn-submit" id="getcustval" onclick="getQ();cgetQ();">Get Value</button>
+
+    <div id="product-timeline" class="timeline-container" style="display:none; margin-top: 20px;">
+      <h3 style="color: black;">Product Journey</h3>
+      <ul class="timeline">
+        <li class="timeline-item" id="step-farmer">
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Farming Stage</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Planted & Harvested</small></p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item" id="step-inspector">
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Quality Control</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Inspector Verified</small></p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item" id="step-market">
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Market Ready</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> Available for Sale</small></p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- QR Code Section -->
+    <div id="qr-container" class="glass-panel" style="display:none; margin-top: 20px; text-align: center;">
+      <h3 style="color: #fff;">Blockchain Verification Badge</h3>
+      <img id="qr-output" src="" alt="QR Code" style="border: 5px solid #fff; border-radius: 10px;">
+      <p style="color: #ddd; margin-top: 10px;"><small>Scan to view ownership history on Etherscan</small></p>
+    </div>
+  </div>
+
+  <div class="form" id="finance-form">
+    <h2 class="form-title">Micro-Finance</h2>
+
+
+    <input type="text" class="input-std" id="pfid" placeholder="Farmer Public Id">
+    <input type="text" class="input-std" id="lotnum" placeholder="Lot Number">
+    <input type="text" class="input-std" id="amount" placeholder="Fund Amount">
+    <table>
+      <tr>
+        <td><b><label class="black">Balance</label></td>
+        <td>:</td></b>
+        <td><span class="black"><span class="black" span id="balance"></span>$</span></td>
+      </tr>
+
+    </table>
+    <button type="button" class="btn-submit" id="getfund" onclick="fund()">Fund Farmer</button>
+
+    <span id="status"></span>
+  </div>
+
+
+
+  <link href="./app.css" rel='stylesheet' type='text/css'>
+  <script src="./index.js"></script>
+
+</body>
+
+</html>

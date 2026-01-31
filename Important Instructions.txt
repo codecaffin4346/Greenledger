@@ -1,0 +1,9 @@
+IMPORTANT: The project has been modernized to use Webpack.
+
+1. Start Ganache (Port 8545).
+2. Run `npm install` (if not done).
+3. Run `truffle migrate --reset`.
+4. Run `npm run dev`.
+
+Do NOT manually copy contract addresses. The system now handles this automatically using the build artifacts.
+Use `npm run build` to rebuild the project artifacts if needed.
