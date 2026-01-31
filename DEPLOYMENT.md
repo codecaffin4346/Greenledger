@@ -25,10 +25,45 @@ If you *must* provide a clickable URL, you can deploy the **Frontend Only**, but
 4.  **Output Directory**: `build`
 5.  Click **Deploy**.
 
-**⚠️ Vital Warning**: 
-The deployed website will load, but when you click "Login" or "Submit", it will fail because **Vercel cannot see your local Ganache blockchain**.
-*   **Fix**: You would need to use `ngrok http 8545` to tunnel your Ganache port and update `index.js` to use the ngrok URL.
-*   **Better Fix**: Deploy contracts to **Sepolia Testnet** (Requires Metamask + Free Test ETH).
+### ⚡ Advanced: How to Connect Vercel to Local Ganache (via Ngrok)
+
+**Prerequisites**:
+1.  **Ngrok Account**: [Sign up here](https://ngrok.com/).
+2.  **Ngrok Installed**: Download and install it.
+
+#### Step 1: Start the Tunnel
+Open a **new terminal** (keep Ganache running) and run:
+```bash
+ngrok http 8545
+```
+*   Copy the **Forwarding URL** (looks like `https://a1b2-c3d4.ngrok-free.app`).
+
+#### Step 2: Update Your Code
+You must tell the frontend to talk to this new "Public URL" instead of localhost.
+1.  Open `app/javascripts/index.js`.
+2.  Find line ~302 (Web3 Initialization).
+3.  Change:
+    ```javascript
+    // OLD
+    window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:8545"));
+    
+    // NEW (Paste your ngrok URL)
+    window.web3 = new Web3(new Web3.providers.HttpProvider("https://YOUR-NGROK-ID.ngrok-free.app"));
+    ```
+
+#### Step 3: Build & Deploy
+1.  Run `npm run build` locally to check for errors.
+2.  **Commit & Push** these changes to GitHub.
+    ```bash
+    git add .
+    git commit -m "Config: Updated Web3 provider to Ngrok"
+    git push
+    ```
+3.  Vercel will auto-detect the push and deploy the new version.
+
+#### Step 4: Important Caveats
+*   **Keep Terminal Open**: If you close the terminal running `ngrok`, the website breaks.
+*   **Resetting**: If you restart ngrok, the URL changes. You must update `index.js`, push, and redeploy again. (This is why Option 1 is better).
 
 ## 📄 Submission Checklist
 - [ ] **GitHub Repo** (Public & Pushed)
