@@ -2,7 +2,7 @@
 
 Since this is a **Blockchain Application** (DApp), "Deployment" is different from a normal website. You have a backend (Blockchain) and a frontend (Web Site).
 
-## ✅ Option 1: The "Hackathon Winner" Method (Recommended)
+## ✅ Option 1: The "Standard Demo" Method (Recommended)
 **Judges rarely run code.** They look at the **Video** and the **Code Quality**.
 
 1.  **Submit the GitHub Link**:
