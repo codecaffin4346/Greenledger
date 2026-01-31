@@ -75,16 +75,27 @@ This is the customer page where the customer can check the customer details and 
 
 The micro-finance form enables any user to fund a farmer. The funding is done by providing the farmers public id, the lot number of the product and the amount.
 
-# System Architecture
+```mermaid
+graph TD
+    A[👨‍🌾 Farmer] -->|Register on Blockchain| B(Identity Verified)
+    A -->|Submit Harvest Logic| C(Smart Contract: produce)
+    
+    C -->|Trigger Reward| D[💰 GreenTokens Issued]
+    C -->|Log Event| E[CropAdded Event]
+    
+    E --> F[🕵️ Quality Inspector]
+    F -->|Fetch Data| G(Verify Details)
+    G -->|AI Scan Simulation| H[🤖 AI Quality Check]
+    
+    H -->|Approve & Grade| I(Smart Contract: quality)
+    I -->|Generate| J[🏭 Batch Validated]
+    
+    J --> K[🛒 Customer]
+    K -->|Scan QR Code| L(Traceability Data)
+    L -->|View Timeline| M[✅ Trust Verified]
+```
 
 
-![Alt text](https://github.com/nikhilvc1990/AgriChain/blob/master/screenshots/AgriChain.jpg?raw=true "Flow Chart")
 
 
-
-# About Us
-
-We are a group of researchers based at Indian Institute Of Information Technology and Management - Kerala
-
-Website/Contact : http://agrochain.in/
 
